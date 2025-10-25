@@ -17,6 +17,14 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 180px;
+    transition:
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+}
+
+.listItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .title {
@@ -78,6 +86,7 @@
 .link {
     align-self: flex-end;
     padding: 6px 12px;
+    margin-right: 5px;
     font-size: 14px;
     color: #fff;
     background-color: #0d6efd;
