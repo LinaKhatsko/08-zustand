@@ -1,5 +1,4 @@
 import css from "./[...slug]/NotesPage.module.css";
-
 export default function FilterLayout({
     children,
     sidebar,

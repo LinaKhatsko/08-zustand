@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import css from "./[...slug]/Sidebar.module.css";
 
+// Теги для фильтра
 const TAGS = [
     "All",
     "Todo",
@@ -11,13 +15,15 @@ const TAGS = [
 ] as const;
 
 export default function Default() {
+    const pathname = usePathname();
+
     return (
         <aside className={css.sidebar}>
             <h2 className={css.title}>Filter by Tag</h2>
             <ul className={css.menuList}>
                 {TAGS.map((tag) => {
                     const href = `/notes/filter/${tag}`;
-                    const isActive = tag === "All"; // На "порожньому" стані вважаємо активним All
+                    const isActive = pathname === href;
                     return (
                         <li key={tag} className={css.menuItem}>
                             <Link
