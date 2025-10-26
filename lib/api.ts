@@ -34,12 +34,14 @@ export interface NewNotePayload {
 export const fetchNotes = async ({
     page = 1,
     query = "",
+    tag = "",
 }: FetchNotesParams): Promise<FetchNotesResponse> => {
     const response = await apiClient.get<FetchNotesResponse>("/notes", {
         params: {
             page,
             perPage: 12,
             ...(query ? { search: query } : {}),
+            ...(tag ? { tag } : {}),
         },
     });
     return response.data;
